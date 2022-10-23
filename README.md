@@ -20,7 +20,7 @@ to build the .mailmap:
 python3.7 and later, pygit2
 
 ## Build
-1. Clone this repository and install dependencies
+1. **Clone this repository and install dependencies**
 
 ```
 $ git clone https://github.com/MashiroCl/mailmapbuilder
@@ -28,13 +28,13 @@ $ cd mailmapbuilder
 $ pip install -r requirements.txt
 ```
 
-2. Creating a personal access token
+2. **Creating a personal access token**
 
 The mailmapbuilder uses the GitHub API, it needs te personal access token to run.
 
 For how to get personal access token, please refer to [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)
 
-3. Set the token as a environment variable
+3. **Set the token as a environment variable**
 
 After you get the token, set it as an environment variable, and named the variable as **MAILMAPBUILDER**
 
