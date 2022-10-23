@@ -1,7 +1,7 @@
 # mailmapbuilder
 
 Automatically build .mailmap for a git repository
-- It searches the GitHub user page 
+
 
 ## Introduciton
 [.mailmap](https://git-scm.com/docs/gitmailmap) is used to map author and committer names and email addresses to canonical real names and email addresses. 
