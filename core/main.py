@@ -38,7 +38,7 @@ class MailMap:
         l = list(d)
         record = [0] * len(l)
         githubers = []
-        github = Github(user_agent="mashirocl", password=os.getenv("MAILMAPBUILDER"))
+        github = Github(user_agent="anonymous", password=os.getenv("MAILMAPBUILDER"))
 
         # print(github.get_rate_limit())
 
@@ -108,12 +108,5 @@ def set_intersection(a, b) -> bool:
         if each in b:
             return True
     return False
-
-
-if __name__ == "__main__":
-    path = "/Users/leichen/ResearchAssistant/InteractiveRebase/data/mbassador"
-    repo = Repository(path)
-    mailmap = MailMap(repo)
-    mailmap.build_mailmap(".mailmap")
 
 
