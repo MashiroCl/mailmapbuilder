@@ -3,12 +3,16 @@ import time
 import os
 from core.repository import Repository
 from core.main import MailMap
+import datetime
 
-path = "/home/chenlei/projects/master_thesis/dataset/candidates/*"
-record = "/home/chenlei/projects/master_thesis/dataset/record.txt"
-candidates = glob.glob(path)
-for each in candidates:
-    MailMap(Repository(each)).build_mailmap(os.path.join(each, ".mailmap"))
-    with open(record,"a") as f:
-        f.write(each.split("/")[-1] + "\n")
-    time.sleep(60)
+
+def run(dataset_path, record):
+    candidates = glob.glob(dataset_path)
+    for each in candidates:
+        repo_name = each.split("/")[-1]
+        with open(record,"a") as f:
+            f.write(f"{datetime.datetime.now()} {repo_name} running \n")
+        MailMap(Repository(each)).build_mailmap(os.path.join(each, ".mailmap"))
+        with open(record,"a") as f:
+            f.write(f"{datetime.datetime.now()} {repo_name} finished \n")
+        time.sleep(60)
