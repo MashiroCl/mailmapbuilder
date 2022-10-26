@@ -15,4 +15,3 @@ def run(dataset_path, record):
         MailMap(Repository(each)).build_mailmap(os.path.join(each, ".mailmap"))
         with open(record,"a") as f:
             f.write(f"{datetime.datetime.now()} {repo_name} finished \n")
-        time.sleep(60)
