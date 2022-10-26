@@ -7,7 +7,6 @@ from core.repository import Repository
 
 GITHUB_GET_USER_API = "https://api.github.com/users/"
 GITHUB_SEARCH_USER_API = "https://api.github.com/search/users?q="
-# X-RateLimit-Remaining
 NULL = "null"
 
 class MailMap:
