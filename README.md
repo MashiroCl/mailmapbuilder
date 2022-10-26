@@ -17,7 +17,7 @@ to build the .mailmap:
 - Use the login, public email to search in the commit history to collect the develoepr's aliases and emails in a chained way
 
 ## Requirement
-python3.7 and later, pygit2
+python3.7 and later
 
 ## Build
 1. **Clone this repository and install dependencies**
@@ -42,6 +42,11 @@ For MacOS:
 ```
 $ echo "export MAILMAPBUILDER=<personal-access-token>" >> ~/.bash_profile
 $ source ~/.bash_profile
+```
+
+For Linux:
+```
+export MAILMAPBUILDER=<personal-access-token>
 ```
 
 ## Run Example
