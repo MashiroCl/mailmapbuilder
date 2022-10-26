@@ -59,7 +59,7 @@ def githuber2mailmap(githuber: GitHuber, path: str):
 
 
 def wait_api_rate_limit(response:requests.Response):
-    if int(response.headers["X-RateLimit-Remaining"]) == 1:
+    if int(response.headers["X-RateLimit-Remaining"]) <= 1:
         while int(time()) < int(response.headers["X-RateLimit-Reset"]):
             sleep(1)
 
@@ -79,6 +79,11 @@ def search_top_user(user_name:str)->dict:
     response = requests.get(GITHUB_SEARCH_USER_API + user_name, headers=headers)
     wait_api_rate_limit(response)
     candidates = response.json()["items"]
+
+    # if "items" in response.json():
+    #     candidates = response.json()["items"]
+    # else:
+    #     candidates = []
     if len(candidates)>0:
         return candidates[0]
     # if user not found, use the name as his/her login
