@@ -60,7 +60,7 @@ def githuber2mailmap(githuber: GitHuber, path: str):
 
 def wait_api_rate_limit(response:requests.Response):
     if int(response.headers["X-RateLimit-Remaining"]) <= 1:
-        while int(time()) < int(response.headers["X-RateLimit-Reset"]):
+        while int(time()) <= int(response.headers["X-RateLimit-Reset"])+1:
             sleep(1)
 
 def search(user_name: str) -> GitHuber:
