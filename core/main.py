@@ -55,7 +55,9 @@ class MailMap:
 
 def githuber2mailmap(githuber: GitHuber, path: str):
     with open(path, "a", encoding="utf-8") as f:
-        f.writelines(githuber.mailmap_format())
+        mailmap_rows = githuber.mailmap_format()
+        if len(mailmap_rows)>0:
+            f.writelines(mailmap_rows)
 
 
 def wait_api_rate_limit(response:requests.Response):

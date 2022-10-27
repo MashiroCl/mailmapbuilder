@@ -23,8 +23,9 @@ class GitHuber(object):
     def mailmap_format(self)->List[str]:
         res = []
         l = list(self.emails)
-        proper_email = "<" + l[0] + ">"
-        for i in range(len(l)):
-            actual_email = "<" + l[i] + ">"
-            res.append(self.login + " " + proper_email + " " + actual_email + "\n")
+        if len(l)>0:
+            proper_email = "<" + l[0] + ">"
+            for i in range(len(l)):
+                actual_email = "<" + l[i] + ">"
+                res.append(self.login + " " + proper_email + " " + actual_email + "\n")
         return res
