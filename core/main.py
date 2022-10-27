@@ -76,15 +76,18 @@ def search_top_user(user_name:str)->dict:
         'Accept': 'application/vnd.github+json',
         'Authorization': 'Bearer ' + os.getenv("MAILMAPBUILDER"),
     }
+
     response = requests.get(GITHUB_SEARCH_USER_API + user_name, headers=headers)
     wait_api_rate_limit(response)
-    candidates = response.json()["items"]
+    response_json = response.json()
+    if response_json["total_count"]>0:
+        candidates = response_json["items"]
+    # user not found
+    else:
+        print(f"user {user_name} not found")
+        candidates = None
 
-    # if "items" in response.json():
-    #     candidates = response.json()["items"]
-    # else:
-    #     candidates = []
-    if len(candidates)>0:
+    if candidates:
         return candidates[0]
     # if user not found, use the name as his/her login
     else:
