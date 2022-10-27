@@ -82,7 +82,7 @@ def search_top_user(user_name:str)->dict:
     response = requests.get(GITHUB_SEARCH_USER_API + user_name, headers=headers)
     wait_api_rate_limit(response)
     response_json = response.json()
-    if response_json["total_count"]>0:
+    if response_json.get("total_count",0)>0:
         candidates = response_json["items"]
     # user not found
     else:
