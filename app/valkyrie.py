@@ -1,5 +1,4 @@
 import glob
-import time
 import os
 from core.repository import Repository
 from core.main import MailMap
