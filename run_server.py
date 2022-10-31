@@ -5,5 +5,5 @@ if __name__ == "__main__":
     path = "/home/chenlei/projects/master_thesis/dataset/candidates/*"
     record = "/home/chenlei/projects/master_thesis/dataset/record.txt"
     # path = "/Users/leichen/data/OSS/*"
-    # record = "/Users/leichen/data/OSS/record.txt"
+    # record = "/Users/leichen/data/record.txt"
     run(path,record)
